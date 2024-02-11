@@ -14,19 +14,19 @@ char *s21_strtok(char *str, const char *delim) {
   else
     flag = 1;
 
-  if (head && *head == '\0') flag = 1;  // нет токинов
+  if (head && *head == '\0') flag = 1;  
   char *next = head;
   if (next && flag == 0)
-    while (*next && s21_strchr(delim, *next)) next++;  // ищем 1 вхожение токена
-  if (next && *next == '\0') flag = 1;  // токен не найден
+    while (*next && s21_strchr(delim, *next)) next++; 
+  if (next && *next == '\0') flag = 1; 
 
   char *result = next;
 
-  if (next && flag == 0)  // токен найден
-    while (s21_strchr(delim, *next) == s21_NULL) next++;  // ищем 2 вхождение
-  if (next && *next == '\0' && flag == 0)  // вхождение не найдено
+  if (next && flag == 0)  /
+    while (s21_strchr(delim, *next) == s21_NULL) next++;  
+  if (next && *next == '\0' && flag == 0) 
     head = next;
-  else if (next && flag == 0) {  // вхождение найдено
+  else if (next && flag == 0) {  
     *next = '\0';
     head = next + 1;
   }
